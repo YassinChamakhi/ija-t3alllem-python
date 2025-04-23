@@ -258,22 +258,5 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler('start', start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
     
-    # print("Bot running...")
-    # app.run_polling()   
-    # keep your print
-print("Bot running...")
-
-# set your public URL and port
-PORT = int(os.environ.get("PORT", 5000))
-WEBHOOK_URL = "https://<your-render-app>.onrender.com/webhook"
-
-# tell Telegram where to send updates
-await app.bot.set_webhook(WEBHOOK_URL)
-
-# start webhook listener instead of polling
-app.run_webhook(
-    listen="0.0.0.0",
-    port=PORT,
-    url_path="webhook",
-    webhook_url=WEBHOOK_URL
-)
+    print("Bot running...")
+    app.run_polling()   
